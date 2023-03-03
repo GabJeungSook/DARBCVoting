@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,8 +14,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('member_id');
             $table->foreignId('event_id');
-            $table->string('spa_name');
-            $table->boolean('is_voted');
+            $table->boolean('is_voted')->default(false);
             $table->timestamps();
         });
     }
