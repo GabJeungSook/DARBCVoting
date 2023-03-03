@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
-
+use Filament\Facades\Filament;
 class BroadcastServiceProvider extends ServiceProvider
 {
     /**
@@ -15,5 +15,6 @@ class BroadcastServiceProvider extends ServiceProvider
         Broadcast::routes();
 
         require base_path('routes/channels.php');
+        Filament::registerViteTheme('resources/css/filament.css');
     }
 }
