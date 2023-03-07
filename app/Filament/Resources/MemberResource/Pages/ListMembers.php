@@ -34,8 +34,10 @@ class ListMembers extends ListRecords
 
                     foreach ($csvRecords as $csvRecord) {
                         Member::create([
-                            'name' => $csvRecord[0],
-                            'spa_name' => $csvRecord[1],
+                            'member_id' => $csvRecord[0],
+                            'type' => $csvRecord[1],
+                            'name' => $csvRecord[2],
+                            'spa_name' => $csvRecord[3],
                         ]);
                     }
                 })

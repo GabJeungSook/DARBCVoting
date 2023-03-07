@@ -36,7 +36,14 @@ class MemberResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([TextColumn::make('name'), TextColumn::make('spa_name')])
+            ->columns([
+                TextColumn::make('member_id')->label('MEMBER IDENTIFICATION'),
+                TextColumn::make('name')->label('NAME'),
+                TextColumn::make('spa_name')
+                    ->default('N/A')
+                    ->label('SPA NAME'),
+                TextColumn::make('type')->label('TYPE'),
+            ])
             ->filters([
                 //
             ])
