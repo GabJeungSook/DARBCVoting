@@ -26,6 +26,11 @@ class UserResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
+    protected function getTableQuery(): Builder
+    {
+        return User::where('is_counter', 1)->get();
+    }
+
     public static function form(Form $form): Form
     {
         return $form->schema([

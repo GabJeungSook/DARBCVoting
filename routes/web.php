@@ -44,6 +44,9 @@ Route::prefix('counter')
         Route::get('/dashboard', function () {
             return view('counter.index');
         })->name('counter.dashboard');
+        Route::get('/members', function () {
+            return view('counter.member');
+        })->name('counter.member');
     });
 
 require __DIR__ . '/auth.php';
