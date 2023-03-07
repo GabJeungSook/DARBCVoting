@@ -15,7 +15,7 @@ class Candidate extends Model
         return $this->hasMany(Vote::class);
     }
 
-    public function candidate_information()
+    public function candidateInformation()
     {
         return $this->belongsTo(CandidateInformation::class);
     }

@@ -12,6 +12,9 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\TextColumn;
 
 class PositionResource extends Resource
 {
@@ -25,24 +28,38 @@ class PositionResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                //
-            ]);
+        return $form->schema([
+            Card::make()
+                ->schema([
+                    TextInput::make('name')
+                        ->label('Position')
+                        ->required(),
+                    TextInput::make('number_of_candidate')
+                        ->label('Number of Candidate')
+                        ->numeric()
+                        ->required(),
+                ])
+                ->columns(2),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->label('NAME')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('number_of_candidate')
+                    ->label('NUMBER OF CANDIDATE')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
+            ->actions([Tables\Actions\EditAction::make()->color('success')])
             ->bulkActions([
                 // Tables\Actions\DeleteBulkAction::make(),
             ]);
@@ -51,8 +68,8 @@ class PositionResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
-        ];
+                //
+            ];
     }
 
     public static function getPages(): array

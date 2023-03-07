@@ -10,8 +10,8 @@ class CandidateInformation extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function candidate()
+    public function candidates()
     {
-        return $this->belongsTo(Candidate::class);
+        return $this->hasMany(Candidate::class);
     }
 }
