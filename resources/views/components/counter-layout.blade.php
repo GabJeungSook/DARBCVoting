@@ -21,7 +21,7 @@
 <body class="font-sans antialiased h-full overflow-hidden">
   <!--
   This example requires some changes to your config:
-  
+
   ```
   // tailwind.config.js
   module.exports = {
@@ -50,7 +50,7 @@
         </div>
         <div class="mt-6 w-full flex-1 space-y-1 px-2">
           <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-800 hover:text-white" -->
-          <a href="#"
+          <a href="{{route('counter.dashboard')}}"
             class="text-indigo-100 hover:bg-indigo-800 fill-white hover:text-white group flex w-full flex-col items-center rounded-md p-3 text-sm font-medium">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25">
               <path fill="none" d="M0 0h24v24H0z" />
@@ -60,7 +60,7 @@
             <span class="mt-2">Home</span>
           </a>
 
-          <a href="#"
+          <a href="{{route('counter.member')}}"
             class="text-indigo-100 hover:bg-indigo-800 fill-white hover:text-white group flex w-full flex-col items-center rounded-md p-3 text-sm font-medium">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25">
               <path fill="none" d="M0 0h24v24H0z" />
