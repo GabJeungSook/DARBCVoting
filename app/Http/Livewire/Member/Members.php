@@ -6,11 +6,15 @@ use Livewire\Component;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Member;
-
+use Filament\Tables\Columns\ViewColumn;
+use App\Models\Voter;
+use App\Models\Event;
 
 class Members extends Component implements Tables\Contracts\HasTable
 {
     use Tables\Concerns\InteractsWithTable;
+
+    public $vote_modal = false;
 
     protected function getTableQuery(): Builder
     {
@@ -33,11 +37,25 @@ class Members extends Component implements Tables\Contracts\HasTable
                 ->default('NONE')
                 ->searchable()
                 ->sortable(),
+            ViewColumn::make('id')
+                ->label('STATUS')
+                ->view('member-status-column'),
         ];
     }
 
     public function render()
     {
         return view('livewire.member.members');
+    }
+
+    public function openModal($id)
+    {
+        $this->vote_modal = true;
+        // $event = Event::where('is_active', 1)->first()->id;
+
+        // $voter = Voter::create([
+        //     'member_id' => $id,
+        //     'event_id' => $event,
+        // ]);
     }
 }
